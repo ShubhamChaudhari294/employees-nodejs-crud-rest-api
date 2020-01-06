@@ -64,5 +64,16 @@
       "postal_code": "89898989"
     },
     "id": 6
+  },
+  {
+    "name": "Shubham",
+    "phone": "8989898",
+    "address": {
+      "city": "kuala lumpur",
+      "address_line1": "Brickfields",
+      "address_line2": "malaysia",
+      "postal_code": "89999"
+    },
+    "id": 7
   }
 ]

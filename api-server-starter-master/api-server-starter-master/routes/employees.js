@@ -53,15 +53,26 @@ const userRoutes = (app, fs) => {
             data.push(req.body);
 
             writeFile(JSON.stringify(data, null, 2), () => {
-                message = 
-                        {message: 'new user added'}
+                message =
+                    { message: 'new user added' }
                 res.status(200).send(message);
             });
         },
             true);
     });
 
+    app.get('/employees/:id', (req, res) => {
 
+        readFile(data => {
+            // get user by id
+            const userId = parseInt(req.params["id"]);
+            const user = data.find(item => {
+                return item.id === userId
+            })
+            return res.status(200).send(user);
+        },
+            true);
+    });
     // UPDATE
     app.post('/employees/:id', (req, res) => {
 
@@ -76,11 +87,11 @@ const userRoutes = (app, fs) => {
                     data[i] = req.body
                 }
             }
-           
+
             writeFile(JSON.stringify(data, null, 2), () => {
-                message = 
-                        {message: `users id:${userId} updated`}
-                
+                message =
+                    { message: `users id:${userId} updated` }
+
                 res.status(200).send(message);
             });
         },
